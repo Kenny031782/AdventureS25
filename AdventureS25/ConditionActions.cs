@@ -49,4 +49,15 @@ public static class ConditionActions
     {
         return () => Map.RemoveConnection(startLocationName, direction);
     }
+
+    public static Action EndGame()
+    {
+        return () => Game.EndGame();
+    }
+    
+    public static Action AddHouseConnection(string startLocationName, string direction,
+        string endLocationName)
+    {
+        return () => Map.AddConnection(startLocationName, direction, endLocationName);
+    }
 }

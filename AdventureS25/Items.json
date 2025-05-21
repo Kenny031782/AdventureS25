@@ -1,25 +1,67 @@
 ﻿{
   "Items": [
     {
-      "Name": "sword",
-      "Description": "long sword",
-      "InitialDescription": "There is a long sword stuck in a rock here.",
-      "IsTakeable": true,
+      "Name": "lever",
+      "Description": "a mysterious looking lever that urges to be flipped",
+      "InitialDescription": "There is a mysterious looking lever that urges to be pulled.",
+      "IsTakeable": false,
       "Location": "Entrance"
     },
     {
-      "Name": "donut",
-      "Description": "A giant concrete donut that you can't take",
-      "InitialDescription": "A giant concrete donut rests on the floor.",
-      "IsTakeable": false,
-      "Location": "Storage"
+      "Name": "woodenkey",
+      "Description": "A fragile looking key with cracks all over it",
+      "InitialDescription": "There is a muddy, slimy, sticky key inside the broken chest.",
+      "IsTakeable": true,
+      "Location": ""
     },
     {
-      "Name": "beer",
-      "Description": "beer's beer",
-      "InitialDescription": "There is a beer's beer in a beer here.",
+      "Name": "diamond key",
+      "Description": "a mysterious looking lever that urges to be flipped",
+      "InitialDescription": "There is a mysterious looking lever that urges to be flipped",
+      "IsTakeable": false,
+      "Location": ""
+    },
+    {
+      "Name": "chest",
+      "Description": "a chest covered in mud",
+      "InitialDescription": "There is a fragile looking chest that desires to be breaked.",
+      "IsTakeable": false,
+      "Location": "East Cave Wall"
+    },
+    {
+      "Name": "axe",
+      "Description": "A stolen rusty axe.",
+      "InitialDescription": "There is a man standing outside a hut with a axe next to the brazil nut trees. He looks extremely weak and powerless to stop you from stealing his axe.",
       "IsTakeable": true,
-      "Location": "Throne Room"
+      "Location": "Amazon Rainforest Cave"
+    },
+    {
+      "Name": "wood",
+      "Description": "You have wood.",
+      "InitialDescription": "You have all this wood, probably enough to build a raft.",
+      "IsTakeable": true,
+      "Location": ""
+    },
+    {
+      "Name": "raft",
+      "Description": "A makeshift raft that floats.",
+      "InitialDescription": "A makeshift raft that floats.",
+      "IsTakeable": true,
+      "Location": ""
+    },
+    {
+      "Name": "redpotion",
+      "Description": "A vial of red liquid.",
+      "InitialDescription": "The red liquid inside one of the vials bubbles angrily, as if boiling hot.",
+      "IsTakeable": false,
+      "Location": "Laboratory"
+    },
+    {
+      "Name": "greenpotion",
+      "Description": "A vial of green liquid.",
+      "InitialDescription": "The green liquid inside the other vial looks calm and flat, like a refreshing watermelon mocktail.",
+      "IsTakeable": false,
+      "Location": "Laboratory"
     }
   ]
 }

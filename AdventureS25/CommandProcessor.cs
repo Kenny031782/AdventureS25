@@ -19,7 +19,7 @@ public static class CommandProcessor
     
     public static string GetInput()
     {
-        Console.Write("> ");
+        Console.Write("---------> ");
         string input = Console.ReadLine();
         return input;
     }

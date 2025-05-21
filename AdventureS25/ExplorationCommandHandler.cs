@@ -25,8 +25,62 @@ public static class ExplorationCommandHandler
             {"tidyup", TidyUp},
             {"teleport", Teleport},
             {"connect", Connect},
-            {"disconnect", Disconnect}
+            {"disconnect", Disconnect},
+            {"pull", Pull},
+            {"open", Open},
+            {"break", Break},
+            {"climb", Climb},
+            {"swim", Swim},
+            {"cut", Cut},
+            {"build", Build},
+            {"use", Use},
+            {"help", Help}
         };
+
+    private static void Help(Command command)
+    {
+        Player.Help(command);
+    }
+
+    private static void Use(Command command)
+    {
+        Player.Use(command);
+    }
+
+    private static void Build(Command command)
+    {
+        Player.Build(command);
+    }
+
+    private static void Cut(Command command)
+    {
+        Player.Cut(command);
+    }
+
+    private static void Swim(Command command)
+    {
+        Player.Swim(command);
+    }
+
+    private static void Climb(Command command)
+    {
+        Player.Climb(command);
+    }
+
+    private static void Break(Command command)
+    {
+        Player.Break(command);
+    }
+
+    private static void Open(Command command)
+    {
+        Player.Open(command);
+    }
+
+    private static void Pull(Command command)
+    {
+        Player.Pull(command);
+    }
 
     private static void Disconnect(Command obj)
     {

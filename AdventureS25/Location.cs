@@ -2,6 +2,10 @@
 
 public class Location
 {
+    public string Name
+    {
+        get { return name; }
+    }
     private string name;
     public string Description;
     

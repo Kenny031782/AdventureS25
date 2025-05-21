@@ -11,4 +11,6 @@ public enum ConditionTypes
     IsTeleported,
     IsCreatedConnection,
     IsRemovedConnection,
+    IsDead,
+    IsUnlockedHouse,
 }

@@ -3,19 +3,19 @@
 public static class ExplorationCommandValidator
 {
     public static List<string> Verbs = new List<string>
-        {"go", "eat", "take", "drop", "drink"};
+        {"go", "eat", "take", "drop", "drink", "pull", "open", "break", "climb", "swim", "cut", "build", "use"};
     
     public static List<string> StandaloneVerbs = new List<string>
     {
         "exit", "inventory", "look", "tron", "troff",
         "nouns", "verbs", "fight", "explore", "talk", "beerme", 
-        "unbeerme", "puke", "tidyup", "teleport", "connect", "disconnect"
+        "unbeerme", "puke", "tidyup", "teleport", "connect", "disconnect", "help"
     };
     
     public static List<string> Nouns = new List<string>
     {
         "bagel", "apple", "beer", "east", "west", "north", "south",
-        "up", "down", "sword"
+        "up", "down", "sword", "lever", "axe", "tree", "trees", "wood", "raft"
     };
     
     public static bool IsValid(Command command)

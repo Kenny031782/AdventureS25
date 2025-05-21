@@ -36,10 +36,96 @@
 
     {
       "Name": "Cave",
-      "Description": "It's a dark cave.",
+      "Description": "There is a big ass dripstone on the roof that could drop at any moment. You can go east, south, or west.",
       "Connections": {
+        "east": "East Cave",
+        "south": "South Cave",
+        "west" : "West Cave"
+      }
+    },
+    {
+      "Name": "East Cave",
+      "Description": "There is a very high wall with rock holds that could be climbed.",
+      "Connections": {
+        "west" : "Cave"
+      }
+    },
+    {
+      "Name": "East Cave Wall",
+      "Description": "The floor is muddy",
+      "Connections": {
+      }
+    },
+    {
+      "Name": "South Cave",
+      "Description": "You see a tiny opening with glistening gold on the other side. You can go south.",
+      "Connections": {
+        "north" : "Cave",
+        "south" : "Lake Cave"
+      }
+    },
+    {
+      "Name": "Lake Cave",
+      "Description": "There is a large body of water that some people call a Lake. You see a perfectly maintained beach house in the middle of the lake. You can try swimming to the house that is south, go west, or go north.",
+      "Connections": {
+        "north" : "South Cave",
+        "west" : "Amazon Rainforest Cave"
+      }
+    },
+    {
+      "Name": "Lake",
+      "Description": "There is water surrounding you as you enter the lake.",
+      "Connections": {
+        "north" : "Lake Cave",
+        "south" : "Lake House"
+      }
+    },
+    {
+      "Name": "Lake House",
+      "Description": "There is a two story house with a wooden lock.",
+      "Connections": {
+        "north" : "Lake"
+      }
+    },
+    {
+      "Name": "Living Room",
+      "Description": "There is furniture that has been collecting dust inside and rotting food on the kitchen counter.",
+      "Connections": {
+        "east" : "Laboratory",
+        "west" : "Bedroom"
+      }
+    },
+    {
+      "Name": "Laboratory",
+      "Description": "You enter a pristine white room full of research equipment. There is a stand at the back of the room that holds two vials: one green and one red.",
+      "Connections": {
+        "west" : "Living Room"
+      }
+    },
+    {
+      "Name": "Bedroom",
+      "Description": "There is a closet overflowing with dirty clothes, a messy desk with blueprints on top, and a unmade bed.",
+      "Connections": {
+        "east" : "Living Room"
+      }
+    },
+    {
+      "Name": "Amazon Rainforest Cave",
+      "Description": "You pass through a humid tunnel with vines hanging from the walls. There are endless Brazil Nut trees surrounding you.",
+      "Connections": {
+        "east" : "Lake Cave"
+      }
+    },
+    
+    {
+      "Name": "West Cave",
+      "Description": "There is a massive wooden door with a diamond lock.",
+      "Connections": {
+        "east" : "Cave"
       }
     }
   ],
+  
+  
   "StartLocation": "Entrance"
 }

@@ -33,11 +33,11 @@ public static class Conditions
         Add(isTeleported);
 
         Condition isConnectedRooms = new Condition(ConditionTypes.IsCreatedConnection);
-        isConnectedRooms.AddToActivateList(ConditionActions.WriteOutput("An opening into a cave has magically appeared."));
+        isConnectedRooms.AddToActivateList(ConditionActions.WriteOutput("An opening into a cave has magically appeared to the south."));
         isConnectedRooms.AddToActivateList(ConditionActions.AddMapConnection("Entrance", 
             "south", "Cave"));
-        isConnectedRooms.AddToActivateList(ConditionActions.AddMapConnection("Cave", 
-            "north", "Entrance"));
+        //isConnectedRooms.AddToActivateList(ConditionActions.AddMapConnection("Cave", 
+           // "north", "Entrance"));
         Add(isConnectedRooms);
 
         Condition isDisconnectedRooms = new Condition(ConditionTypes.IsRemovedConnection);
@@ -45,6 +45,15 @@ public static class Conditions
         isDisconnectedRooms.AddToActivateList(ConditionActions.RemoveMapConnection("Entrance", "north"));
         isDisconnectedRooms.AddToActivateList(ConditionActions.RemoveMapConnection("Throne Room", "south"));
         Add(isDisconnectedRooms);
+        
+        Condition IsDead = new Condition(ConditionTypes.IsDead);
+        IsDead.AddToActivateList(ConditionActions.EndGame());
+        Add(IsDead);
+
+        Condition isConnectedHouse = new Condition(ConditionTypes.IsUnlockedHouse);
+        isConnectedHouse.AddToActivateList(ConditionActions.AddMapConnection("Lake House", "south", "Living Room"));
+        isConnectedHouse.AddToActivateList(ConditionActions.AddMapConnection("Living Room", "north", "Lake House"));
+        Add(isConnectedHouse);
     }   
     
     public static void ChangeCondition(ConditionTypes conditionType,
@@ -98,4 +107,5 @@ public static class Conditions
     {
         return !conditions.ContainsKey(conditionType);
     }
+    
 }

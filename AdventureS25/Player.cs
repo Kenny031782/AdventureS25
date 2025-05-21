@@ -46,10 +46,18 @@ public static class Player
         {
             Console.WriteLine("The " + command.Noun + " can't be taked.");
         }
+
         else if (command.Noun == "axe")
         {
-            Console.WriteLine("You steal the axe from the man.");
-            Inventory.Add(item);
+                if (CurrentLocation.Name != "Amazon Rainforest Cave")
+                {
+                    Console.WriteLine("You can't take the axe.");
+                }
+                else
+                {
+                    Console.WriteLine("You steal the axe from the man.");
+                    Inventory.Add(item);
+                }
         }
         else
         {
@@ -116,16 +124,29 @@ public static class Player
 
         if (command.Noun == "redpotion")
         {
-            Console.WriteLine("** drinking red potion");
-            // add a strength effect when you drink the potion (use ConditionActions? maybe)
+            if (!HasItem("redpotion"))
+            {
+                Console.WriteLine("You don't have a red potion.");
+            }
+            else
+            {
+                Console.WriteLine("** drinking red potion");
+                // add a strength effect when you drink the potion (use ConditionActions? maybe)
+            }
         }
 
         if (command.Noun == "greenpotion")
         {
-            Console.WriteLine("** drinking green potion");
-            AddItemToInventory("greenpotion");
+            if (!HasItem("greenpotion"))
+            {
+                Console.WriteLine("You don't have a green potion.");
+            }
+            else
+            {
+                Console.WriteLine("** drinking green potion");
+                AddItemToInventory("greenpotion");
+            }
         }
-        
     }
 
     public static void AddItemToInventory(string itemName)
@@ -198,7 +219,7 @@ public static class Player
         {
             if (!HasItem("axe"))
             {
-                Console.WriteLine("You don't have the right tool");
+                Console.WriteLine("You don't have the right tool.");
             }
             else if (CurrentLocation.Name != "East Cave Wall")
             {
@@ -208,7 +229,7 @@ public static class Player
             {
                 // break the chest
                 Console.WriteLine("You break the chest open with the frail axe.");
-                Map.AddItem("wooden key", "East Cave Wall");
+                Map.AddItem("woodenkey", "East Cave Wall");
                 Map.RemoveItem("chest", "East Cave Wall");
                 Console.WriteLine("There is a muddy, slimy, sticky key inside the broken chest.");
             }
@@ -263,62 +284,104 @@ public static class Player
         {
             Console.WriteLine("There is no wall here. Try somewhere else.");
         }
-        if (command.Noun == "up")
+        else if (command.Noun == "up")
         {
-            Console.WriteLine("You have climbed up the wall.");
+            Console.WriteLine("** climbing up wall");
             MoveToLocation("East Cave Wall");
         }
-        if (command.Noun == "down")
+        else if (command.Noun == "down")
         {
-                Console.WriteLine("You have climbed down the wall.");
+                Console.WriteLine("** climbing down wall");
                 MoveToLocation("East Cave");
         }
     }
 
     public static void Swim(Command command)
     {
-        MoveToLocation("Lake");
+        if (CurrentLocation.Name != "Lake Cave")
+        {
+            Console.WriteLine("You can't swim here.");
+        }
+        else
+        {
+            MoveToLocation("Lake");
+        }
     }
 
     public static void Cut(Command command)
     {
         if (command.Noun is ("tree" or "trees"))
         {
-            Console.WriteLine("You have cut the Brazil Nut tree.");
-            Console.WriteLine("Now you have all this wood, probably enough to build a raft.");
-            AddItemToInventory("wood");
+            if (!HasItem("axe"))
+            {
+                Console.WriteLine("You don't have the right tool.");
+            }
+            else if (CurrentLocation.Name != "Amazon Rainforest Cave")
+            {
+                Console.WriteLine("There are no trees here to cut.");
+            }
+            else
+            {
+                Console.WriteLine("You have cut the Brazil Nut tree.");
+                Console.WriteLine("Now you have all this wood, probably enough to build a raft.");
+                AddItemToInventory("wood");
+            }
         }
     }
 
     public static void Build(Command command)
     {
-        if (HasItem("wood"))
+        if (command.Noun == "raft")
         {
-            Console.WriteLine("You have built a raft out of wood.");
-            AddItemToInventory("raft");
+            if (!HasItem("wood"))
+            {
+                Console.WriteLine("You don't have enough wood.");
+            }
+            else
+            {
+                Console.WriteLine("You have built a raft out of wood.");
+                AddItemToInventory("raft");
+            }
         }
     }
 
     public static void Use(Command command)
     {
-        if (HasItem("raft"))
+        if (command.Noun == "raft")
         {
-            if (command.Noun == "raft")
+            if (!HasItem("raft"))
+            {
+                Console.WriteLine("You don't have a raft");
+            }
+            else 
             {
                 Console.WriteLine("You sail across the lake safe and sound.");
                 MoveToLocation("Lake House");
             }
         }
+
         if (command.Noun == "woodenkey")
         {
-            Console.WriteLine("** unlocking door");
-            Conditions.ChangeCondition(ConditionTypes.IsUnlockedHouse, true);
-            Console.WriteLine("You have unlocked the door. You can go south to enter the house.");
-        }
+            if (!HasItem("woodenkey"))
+            {
+                Console.WriteLine("You don't have the key to unlock this door.");
+            }
+            else if (CurrentLocation.Name != "Lake House")
+            {
+                Console.WriteLine("There is no lock here.");
+            }
+            else
+            {
+                Console.WriteLine("** unlocking door");
+                Conditions.ChangeCondition(ConditionTypes.IsUnlockedHouse, true);
+                Console.WriteLine("You have unlocked the door. You can go south to enter the house.");
+            }
+        } 
+
     }
 
     public static void Help(Command command)
     {
-        Console.WriteLine("Command List: \n go \n take \n look \n inventory \n pull \n climb 'up/down' \n break \n cut \n build \n swim \n use");
+        Console.WriteLine("Command List: \n go \n take \n look \n inventory \n pull \n climb 'up/down' \n break \n cut \n build \n swim \n use \n drink");
     }
 }

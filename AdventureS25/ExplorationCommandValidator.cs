@@ -3,7 +3,7 @@
 public static class ExplorationCommandValidator
 {
     public static List<string> Verbs = new List<string>
-        {"go", "eat", "take", "drop", "drink", "pull", "open", "break", "climb", "swim", "cut", "build", "use"};
+        {"go", "eat", "take", "drop", "drink", "pull", "open", "break", "climb", "swim", "cut", "build", "use", "steal"};
     
     public static List<string> StandaloneVerbs = new List<string>
     {
